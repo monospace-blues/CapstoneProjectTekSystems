@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./styles/main.css"></link>
+</head>
+<body class="bg-slate-900 text-slate-200" id="app">
+  <!-- Navigation -->
+  <div class="static bg-slate-400/75 text-black">
+    <footer class="flex">
+      <!-- Title -->
+      <a class="px-1" href="./index.html"><h2 class="nameSite text-3xl object-center">SocialSite!</h2></a>
+      <a class="px-5 py-2" href="./views/about.html">About</a>
+    </footer>
+  </div>
+  <!-- Welcome -->
+  <div class="relative">
+    <img class="h-64 w-full object-none" src="./images/pexels-skylar-kang-6044235.jpg">
+    <h2 class="text-3xl centered nameSite">Welcome to our page!</h2>
+  </div>
+  <!-- Posts -->
+  <div class="md:container mx-auto px-20 space-y-4" id="posts">
+    <div class="post columns-1 mt-3 bg-slate-800 rounded-md p-4" id="post1">
+      <h3><a th:href="@{/post}" class="text-2xl" onclick="valueSendPost(this)">Post: Trying to work it out</a></h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed quam, minus, tempora odit odio molestias aliquid ea libero temporibus rem necessitatibus? Enim voluptatem excepturi eaque, nobis soluta voluptate voluptatibus.</p>
+    </div>
+    <div class="post columns-1 bg-slate-800 rounded-md p-4" id="post2">
+      <h3><a href="./views/posts.html" class="text-2xl" onclick="valueSendPost(this)">Post: Love to work it out</a></h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed quam, minus, tempora odit odio molestias aliquid ea libero temporibus rem necessitatibus? Enim voluptatem excepturi eaque, nobis soluta voluptate voluptatibus.</p>
+    </div>
+    <div class="post columns-1 bg-slate-800 rounded-md p-4" id="post3">
+      <h3><a href="./views/posts.html" class="text-2xl" onclick="valueSendPost(this)">Post: Asking to work it out</a></h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda sed quam, minus, tempora odit odio molestias aliquid ea libero temporibus rem necessitatibus? Enim voluptatem excepturi eaque, nobis soluta voluptate voluptatibus.</p>
+    </div>
+    <div class="post columns-1 bg-slate-800 rounded-md p-4" id="post4">
+      <h3><a href="./views/posts.html" class="text-2xl" onclick="valueSendPost(this)">Post: Look at this image!</a></h3>
+      <img src="./images/pexels-anna-nekrashevich-8532637.jpg" class="object-cover w-96 h-64 justify-self-center">
+    </div>
+    <div th:each="showPost : ${postList}" class="post columns-1 bg-slate-800 rounded-md p-4" id="thymeleaf">
+      <h3><a href="./views/posts.html" class="text-2xl" onclick="valueSendPost(this)" th:text="${showPost.getTitle()}"></a></h3>
+      <p th:text="${showPost.getPostText()}"></p>
+    </div>
+  </div>
+
+  <script src="./scripts/home.js"></script>
+</body>
+</html>
