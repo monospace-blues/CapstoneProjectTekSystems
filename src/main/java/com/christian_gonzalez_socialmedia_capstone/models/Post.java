@@ -1,4 +1,4 @@
-package com.project.Christian_Gonzalez_SocialMedia_Capstone.models;
+package com.christian_gonzalez_socialmedia_capstone.models;
 
 import java.util.Date;
 import java.util.List;

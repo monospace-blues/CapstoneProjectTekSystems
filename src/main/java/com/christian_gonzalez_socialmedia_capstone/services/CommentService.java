@@ -1,4 +1,4 @@
-package com.project.Christian_Gonzalez_SocialMedia_Capstone.services;
+package com.christian_gonzalez_socialmedia_capstone.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.Christian_Gonzalez_SocialMedia_Capstone.models.Comment;
-import com.project.Christian_Gonzalez_SocialMedia_Capstone.repository.CommentRepository;
+import com.christian_gonzalez_socialmedia_capstone.models.Comment;
+import com.christian_gonzalez_socialmedia_capstone.repository.CommentRepository;
 
 @Service
 public class CommentService {

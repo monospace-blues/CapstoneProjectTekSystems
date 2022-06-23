@@ -1,4 +1,4 @@
-package com.project.Christian_Gonzalez_SocialMedia_Capstone;
+package com.christian_gonzalez_socialmedia_capstone;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

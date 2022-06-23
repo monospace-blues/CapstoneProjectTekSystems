@@ -1,4 +1,4 @@
-package com.project.Christian_Gonzalez_SocialMedia_Capstone.controllers;
+package com.christian_gonzalez_socialmedia_capstone.controllers;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.Christian_Gonzalez_SocialMedia_Capstone.models.Post;
-import com.project.Christian_Gonzalez_SocialMedia_Capstone.services.PostService;
+import com.christian_gonzalez_socialmedia_capstone.models.Post;
+import com.christian_gonzalez_socialmedia_capstone.services.PostService;
 
 @RestController
 @RequestMapping(path = "api/post")

@@ -1,7 +1,8 @@
-package com.project.Christian_Gonzalez_SocialMedia_Capstone.models;
+package com.christian_gonzalez_socialmedia_capstone.models;
 
 import java.time.LocalDate;
 // import java.util.Date;
+import java.util.Collection;
 
 import javax.persistence.*;
 
@@ -21,6 +22,10 @@ public class User {
 	private String username;
 	private String password;
 	private LocalDate createdOn;
+	
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "userid"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+	private Collection<Role> roles;
 	
 	// constructors
 	public User () {
@@ -57,6 +62,14 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public LocalDate getCreatedOn() {
 		return createdOn;
@@ -64,6 +77,14 @@ public class User {
 
 	public void setCreatedOn(LocalDate createdOn) {
 		this.createdOn = createdOn;
+	}
+	
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
 	}
 
 	@Override

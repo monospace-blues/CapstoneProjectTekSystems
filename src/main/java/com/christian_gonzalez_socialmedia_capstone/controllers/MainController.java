@@ -1,4 +1,4 @@
-package com.project.Christian_Gonzalez_SocialMedia_Capstone.controllers;
+package com.christian_gonzalez_socialmedia_capstone.controllers;
 
 import java.util.List;
 
@@ -8,8 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import com.project.Christian_Gonzalez_SocialMedia_Capstone.models.Post;
+
+import com.christian_gonzalez_socialmedia_capstone.models.Post;
+
 
 @Controller
 public class MainController {
@@ -27,16 +30,28 @@ public class MainController {
 		return "index";
 	}
 	
-	@GetMapping("posts")
-	public String post(Model model) {
-		Post single = postController.getPost((long) 1);
+	@GetMapping("/posts/{id}")
+	public String posts(Model model, @PathVariable("id") String id) {
+		long pathId = Long.parseLong(id);
+		// Post single = postController.getPost(pathId);
 		
-		return "posts.html";
+		// model.addAttribute(id)
+		return "posts";
 	}
 	
-	@RequestMapping("about")
-	@ResponseBody
+	@GetMapping("/about")
 	public String about() {
-		return "about.html";
+		return "about";
 	}
+
+	// login
+    @GetMapping("/login")
+    public String login(Model model) {
+        return "login";
+    }
+
+    @GetMapping("/user")
+    public String userIndex() {
+        return "user/index";
+    }
 }

@@ -1,4 +1,4 @@
-package com.project.Christian_Gonzalez_SocialMedia_Capstone.controllers;
+package com.christian_gonzalez_socialmedia_capstone.controllers;
 
 import java.util.List;
 
@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.Christian_Gonzalez_SocialMedia_Capstone.models.Comment;
-import com.project.Christian_Gonzalez_SocialMedia_Capstone.services.CommentService;
+import com.christian_gonzalez_socialmedia_capstone.models.Comment;
+import com.christian_gonzalez_socialmedia_capstone.services.CommentService;
 
 @RestController
 @RequestMapping(path = "api/comment")
 public class CommentController {
+	// to add comments and such...
 	@Autowired
 	private CommentService commentService;
 	

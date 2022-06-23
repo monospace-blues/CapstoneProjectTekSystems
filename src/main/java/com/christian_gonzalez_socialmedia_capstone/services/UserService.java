@@ -1,4 +1,4 @@
-package com.project.Christian_Gonzalez_SocialMedia_Capstone.services;
+package com.christian_gonzalez_socialmedia_capstone.services;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import com.project.Christian_Gonzalez_SocialMedia_Capstone.models.User;
-import com.project.Christian_Gonzalez_SocialMedia_Capstone.repository.UserRepository;
+import com.christian_gonzalez_socialmedia_capstone.models.User;
+import com.christian_gonzalez_socialmedia_capstone.repository.UserRepository;
 
 @Service
 public class UserService {
