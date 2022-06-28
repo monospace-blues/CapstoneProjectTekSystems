@@ -72,6 +72,7 @@ public class CommentController {
 //		
 //	}
 	
+	// save comments using the post id
 	@PostMapping("/savecomment/{id}")
 	public void saveComment(@ModelAttribute Comment comment, @PathVariable long id) {
 		Comment saving = new Comment();

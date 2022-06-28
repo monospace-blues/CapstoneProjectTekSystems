@@ -39,4 +39,4 @@ Also the security is just for logging in and hashing the password.
 I had big plans for this but I had difficulty getting the project to have basic functionality. It does have it now but it still needs more polish.
 
 ## What To Add
-UPDATE and DELETE requests, keeping track of comments that respond to comments, users being able to chat with other users. If possible also reducing GET and POST requests because Spring Boot is doing this constantly and I get the feeling that there is a more efficient way to approach this.
+UPDATE and DELETE requests, keeping track of comments that respond to comments, users being able to chat with other users. If possible also reducing GET and POST requests because Spring Boot is doing this constantly and I get the feeling that there is a more efficient way to approach this. Also add images and videos thru links.

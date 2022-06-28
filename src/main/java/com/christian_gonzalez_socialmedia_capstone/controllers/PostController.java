@@ -42,6 +42,7 @@ public class PostController {
 		return postService.getPost(id);
 	}
 	
+	// save a post
 	@PostMapping("/add")
 	public void savePost(@ModelAttribute Post post) {
 		Post saving = new Post();
