@@ -31,14 +31,14 @@
 		<h1 id="#" class="font-bold !font-3xl text-3xl" th:text="${post.getTitle()}"></h1>
 		<!-- Post Description -->
 		<p id="#" class="text-lg" th:text="${post.getPostText()}"></p>
-		<p class="text-sm" th:text="${post.getUserId().getUsername()}"></p>
+		<p class="text-sm underline underline-offset-2" th:text="${post.getUserId().getUsername()}"></p>
 	</div>
 
 	<!-- Comments -->
 	<div class="mx-auto px-24" id="commentDiv">
 		<div th:each="commList : ${commentList}" class="columns-1 my-2">
 			<h4 class="text-xs" th:text="${commList.getUserId().getUsername()}"></h4>
-			<p th:text="${commList.getPostText()}">not a bad poem</p>
+			<p th:text="${commList.getPostText()}"></p>
 		</div>
 	</div>
 
