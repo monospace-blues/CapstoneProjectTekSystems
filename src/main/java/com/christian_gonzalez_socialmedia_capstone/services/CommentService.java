@@ -15,10 +15,28 @@ public class CommentService {
 	private CommentRepository commentRepository;
 	
 	// access the db and gets the request
-		public List<Comment> getAllComments() {
+	public List<Comment> getAllComments() {
 
-			List<Comment> comments = new ArrayList<Comment>();
-			commentRepository.findAll().forEach(comments::add);
-			return comments;
+		List<Comment> comments = new ArrayList<Comment>();
+		commentRepository.findAll().forEach(comments::add);
+		return comments;
+	}
+	
+	public List<Comment> getCommentsById(long id) {
+		List<Comment> comments = getAllComments();
+		
+		List<Comment> commentsById = new ArrayList<Comment>();
+		
+		for (Comment x : comments) {
+			if (x.getPostId().getId() == id) {
+				commentsById.add(x);
+			}
 		}
+		
+		return commentsById;
+	}
+	
+	public void addComment(Comment comment) {
+		commentRepository.save(comment);
+	}
 }

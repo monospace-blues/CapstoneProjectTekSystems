@@ -17,6 +17,8 @@ import com.christian_gonzalez_socialmedia_capstone.models.Role;
 import com.christian_gonzalez_socialmedia_capstone.models.User;
 import com.christian_gonzalez_socialmedia_capstone.repository.UserRepository;
 
+
+// implementation of UserService that also implements UserDetailsService from Spring Security
 @Service
 @Lazy
 public class UserServiceImpl implements UserService {
@@ -27,10 +29,12 @@ public class UserServiceImpl implements UserService {
    @Autowired
    private BCryptPasswordEncoder passwordEncoder;
 
+   // uses repository to get username from DB
    public User findByUsername(String username){
        return userRepository.findByUsername(username);
    }
 
+   // any registration thru the page makes the role as "ROLE_USER"
    public User save(UserRegistrationDto registration){
        User user = new User();
        user.setUsername(registration.getUsername());
@@ -39,6 +43,7 @@ public class UserServiceImpl implements UserService {
        return userRepository.save(user);
    }
 
+   // check the login information
    @Override
    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
        User user = userRepository.findByUsername(username);
@@ -50,6 +55,7 @@ public class UserServiceImpl implements UserService {
                mapRolesToAuthorities(user.getRoles()));
    }
 
+   
    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
        return roles.stream()
                .map(role -> new SimpleGrantedAuthority(role.getName()))

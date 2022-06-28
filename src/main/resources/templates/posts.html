@@ -1,44 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Post</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../styles/main.css"></link>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Post</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="../styles/main.css">
+	</link>
 </head>
+
 <body class="bg-slate-900 text-slate-200" id="app">
-  <div class="mx-auto static bg-slate-400/75 text-black">
-    <footer class="flex ...">
-      <!-- Title -->
-      <a class="px-1" href="../index.html"><h2 class="nameSite text-3xl object-center">SocialSite!</h2></a>
-      <a class="px-5 py-2" href="./about.html">About</a>
-    </footer>
-  </div>
-  <div class="posts mx-auto px-6">
-    <!-- Post Title -->
-    <h1 id="title"></h1>
-    <!-- Post Description -->
-    <p id="desc"></p>
-    <img id="imgSrc">
-  </div>
+	<div class="mx-auto static bg-slate-400/75 text-black">
+		<footer class="flex ...">
+			<!-- Title -->
+			<a class="px-1" href="/">
+				<h2 class="nameSite text-3xl object-center">SocialSite!</h2>
+			</a>
+			<a class="px-5 py-2" href="/about">About</a>
+			<a class="px-5 py-2" th:href="@{/logout}">Logout</a>
+			<a class="px-5 py-2" th:href="@{/user}">User Posts</a>
+		</footer>
+	</div>
 
-  <!-- Comments -->
-  <div class="mx-auto px-10" id="commentDiv">
 
-  </div>
+	<!-- Posts -->
+	<div class="posts mx-auto px-6" th:object="${post}">
+		<!-- Post Title -->
+		<h1 id="#" class="font-bold !font-3xl text-3xl" th:text="${post.getTitle()}"></h1>
+		<!-- Post Description -->
+		<p id="#" class="text-lg" th:text="${post.getPostText()}"></p>
+		<p class="text-sm" th:text="${post.getUserId().getUsername()}"></p>
+	</div>
 
-  <!-- Add Comments -->
-  <div class="addcomments px-4">
-    <h3 class="font-bold !font-large">Add Comment</h3>
-    <form id="formComment">
-      <input type="text" name="addName" class="font-black" id="addName">
-      <input type="text" name="addComment" class="font-black" id="addComment">
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-  <!-- Script -->
-  <script src="../scripts/post.js"></script>
+	<!-- Comments -->
+	<div class="mx-auto px-24" id="commentDiv">
+		<div th:each="commList : ${commentList}" class="columns-1 my-2">
+			<h4 class="text-xs" th:text="${commList.getUserId().getUsername()}"></h4>
+			<p th:text="${commList.getPostText()}">not a bad poem</p>
+		</div>
+	</div>
+
+	</div>
+
+	<!-- Add Comments (thymeleaf) -->
+	<div class="addcomments px-4" th:object="${post}">
+		<h3 class="font-bold !font-large">Add Comment</h3>
+		<form th:action="@{/api/comment/savecomment/{id} (id=${post.getId()})}" th:object="${comment}" method="post">
+			<input type="text" th:field="*{postText}" class="font-black" id="addComment1">
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+	<!-- Script -->
+	<script src="../scripts/post.js"></script>
 </body>
+
 </html>

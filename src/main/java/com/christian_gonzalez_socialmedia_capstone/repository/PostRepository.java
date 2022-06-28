@@ -9,4 +9,5 @@ import com.christian_gonzalez_socialmedia_capstone.models.Post;
 public interface PostRepository extends JpaRepository<Post, Long> {
 	// needed to link this abstract class to the variables in the Post model (in this case, id)
 	Post findPostById(Long id);
+	
 }

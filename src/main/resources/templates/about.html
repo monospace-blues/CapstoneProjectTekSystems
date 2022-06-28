@@ -13,8 +13,9 @@
   <div class="mx-auto static bg-slate-400/75 text-black">
     <footer class="flex ...">
       <!-- Title -->
-      <a class="px-1" href="../index.html"><h2 class="nameSite text-3xl object-center">SocialSite!</h2></a>
-      <a class="px-5 py-2" href="./views/about.html">About</a>
+      <a class="px-1" href="/"><h2 class="nameSite text-3xl object-center">SocialSite!</h2></a>
+      <a class="px-5 py-2" th:href="@{/about}">About</a>
+      <a class="px-5 py-2" th:href="@{/logout}">Logout</a>
     </footer>
   </div>
   <div class="relative">
@@ -22,9 +23,18 @@
     <h2 class="text-3xl centered nameSite">About this page</h2>
   </div>
   <br/>
+  <!-- Intro -->
   <div class="bg-slate-800 rounded-md p-4">
     <br/>
-    <p>This is a website to talk and communicate with other!</p>
+    <p>This is a website to blog about you!</p>
+    
+    <br/>
+    <!-- Username -->
+    <div th:object="${user}">
+    <h2>Username: <p th:text="${user.getUsername()}"></p>
+    </h2>
+    </div>
+    
   </div>
 </body>
 </html>

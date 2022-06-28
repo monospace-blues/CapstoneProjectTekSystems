@@ -22,25 +22,20 @@
   <!-- Welcome -->
   <div class="relative">
     <img class="h-64 w-full object-none" src="./images/pexels-skylar-kang-6044235.jpg">
-    <h2 class="text-3xl centered nameSite">Welcome to our page!</h2>
+    <h2 class="text-3xl centered nameSite">User Home</h2>
   </div>
   <!-- Posts -->
-  <div class="md:container mx-auto px-20 space-y-4" id="posts">
-    <div th:each="showPost : ${postList}" class="post columns-1 bg-slate-800 rounded-md p-4" id="thymeleaf">
-      <h3><a th:href="@{/posts/{id}(id=${showPost.getId()})}" class="text-2xl" onclick="valueSendPost(this)" th:text="${showPost.getTitle()}"></a></h3>
-      <p th:text="${showPost.getPostText()}"></p>
-    </div>
-  </div>
-  <!-- Add Posts -->
-  <div class="addcomments px-4" th:object="${post}">
-		<h3 class="font-bold !font-large">Add Post!</h3>
-		<form th:action="@{/api/post/add}" th:object="${post}" method="post">
-			<input type="text" th:field="*{title}" class="font-black" id="addComment1">
-			<input type="text" th:field="*{postText}" class="font-black" id="addComment2">
-			<button type="submit">Submit</button>
-		</form>
+<div class="md:container mx-auto px-20 space-y-4" id="posts">
+	<div th:each="showPost : ${postList}" class="post columns-1 bg-slate-800 rounded-md p-4" id="thymeleaf">
+		<h3><a th:href="@{/posts/{id}(id=${showPost.getId()})}" class="text-2xl" onclick="valueSendPost(this)"
+				th:text="${showPost.getTitle()}"></a></h3>
+		<p th:text="${showPost.getPostText()}"></p>
+<form action="#" th:id="${showPost.getId()}" method="delete" >
+  <input type="hidden" name="_method" value="delete" />
+  <button type="submit" id="submitButton" onclick="deletePost()">delete</button>
+</form>
 	</div>
-
-  <script src="./scripts/home.js"></script>
+</div>
+ <script src="./scripts/user.js"></script>
 </body>
 </html>

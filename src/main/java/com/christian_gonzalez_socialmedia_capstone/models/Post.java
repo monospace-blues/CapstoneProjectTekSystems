@@ -75,6 +75,11 @@ public class Post {
 	public void setUserId(User userId) {
 		this.userId = userId;
 	}
+	@Override
+	public String toString() {
+		return "Post [id=" + id + ", title=" + title + ", postText=" + postText + ", createdOn=" + createdOn
+				+ ", userId=" + userId + ", commentLists=" + commentLists + "]";
+	}
 	
 	
 }

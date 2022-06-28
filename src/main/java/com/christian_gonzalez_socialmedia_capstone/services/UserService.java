@@ -17,11 +17,9 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	// static variable instead from the db, will do that later
-	public List<User> getUser() {
-		return List.of(
-				new User(1, "helvetica", "password", LocalDate.of(2001, 05, 28))
-				);
+	// hardwired variable instead from the db, will do that later
+	public User getUser(String username) {
+		return userRepository.findByUsername(username);
 				
 	}
 

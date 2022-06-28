@@ -66,6 +66,10 @@ public class Comment {
 	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
-	
+	@Override
+	public String toString() {
+		return "Comment [id=" + id + ", postText=" + postText + ", createdOn=" + createdOn + ", userId=" + userId
+				+ ", postId=" + postId + "]";
+	}
 	
 }
